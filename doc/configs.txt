@@ -10679,7 +10679,8 @@ While `typescript-language-server` will likely eventually be replaced by [tsc](#
 for TypeScript, `typescript-language-server` may still be useful for features such as es5 support.
 
 `typescript-language-server` depends on `typescript`. Both packages can be installed via `npm` >sh
-  npm install -g typescript typescript-language-server
+  # if you are using `ts_ls` you will need to install a `typescript` version < 7 for now
+  npm install -g typescript@<version> typescript-language-server
 
 To configure typescript language server, add a
 [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or
@@ -10699,6 +10700,9 @@ Here's an example that disables type checking in JavaScript files.
     ]
   }
 
+If you also have a `deno.json` or a `deno.jsonc` in your project, the `ts_ls` may not start (depending where the
+deno.json is)
+
 Use the `:LspTypescriptSourceAction` command to see "whole file" ("source") code-actions such as:
 - organize imports
 - remove unused code
@@ -10717,7 +10721,7 @@ Commands:
 - editor.action.showReferences
 
 Default config:
-- cmd (use "gF" to view): ../lsp/ts_ls.lua:46
+- cmd (use "gF" to view): ../lsp/ts_ls.lua:50
 - commands: >lua
   {
     ["editor.action.showReferences"] = <function 1>
@@ -10732,8 +10736,8 @@ Default config:
   {
     hostInfo = "neovim"
   }
-- on_attach (use "gF" to view): ../lsp/ts_ls.lua:46
-- root_dir (use "gF" to view): ../lsp/ts_ls.lua:46
+- on_attach (use "gF" to view): ../lsp/ts_ls.lua:50
+- root_dir (use "gF" to view): ../lsp/ts_ls.lua:50
 <
 
 ------------------------------------------------------------------------------
