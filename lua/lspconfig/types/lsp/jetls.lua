@@ -18,6 +18,8 @@
 ---default = "null"
 ---```
 ---@field configuration_section? string
+---Serve the `JETLS/live` diagnostics of open files through [`textDocument/diagnostic`](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#textDocument_diagnostic) (pull diagnostics) instead of pushing them ([`textDocument/publishDiagnostics`](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#textDocument_publishDiagnostics)). Meant for clients that manage pulled diagnostics by their editor state (e.g. the VSCode extension clears them when a tab closes), which the server cannot tell from [`textDocument/didClose`](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#textDocument_didClose). This is normally set programmatically by client extensions rather than by users. See [`pull_diagnostics`](https://aviatesk.github.io/JETLS.jl/release/launching/#init-options/pull_diagnostics).
+---@field pull_diagnostics? boolean
 ---Reuse results from Julia's native inference cache for calls to methods defined outside the modules being analyzed, instead of analyzing them recursively. This can substantially speed up analysis of packages with large dependency surfaces, but analysis results may change slightly, which can change the diagnostics that are reported. See [`reuse_native_inference`](https://aviatesk.github.io/JETLS.jl/release/launching/#init-options/reuse_native_inference). Note: This is an experimental feature that may be removed or changed in future versions.
 ---@field reuse_native_inference? boolean
 
@@ -83,6 +85,12 @@
 ---default = {}
 ---```
 ---@field concretization_patterns? table[]
+---Time limit in seconds for concrete execution of each top-level statement during script and package full analysis (default: 10 seconds), not for the overall analysis. Accepts a positive finite number or the exact string `"inf"` to disable the timeout (risks hangs). Checks cover recursively interpreted callees, but pattern-selected blocks (including package source analysis) run calls natively, with checks only at interpreted top-level statement boundaries. Native calls, including `ccall`, builtins, and `Core.eval`, cannot be interrupted. Time in `include`s and module-loading statements handled by JET is excluded from the caller's limit. See [`concretization_timeout`](https://aviatesk.github.io/JETLS.jl/release/configuration/#config/full_analysis/concretization_timeout).
+---
+---```lua
+---default = 10
+---```
+---@field concretization_timeout? any
 ---Debounce time in seconds before triggering full analysis after a file save. Higher values reduce analysis frequency but may delay diagnostic updates.
 ---
 ---```lua
