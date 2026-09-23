@@ -16,6 +16,7 @@ Nvim by running `:help lspconfig-all`.
 - [antlersls](#antlersls)
 - [apex_ls](#apex_ls)
 - [arduino_language_server](#arduino_language_server)
+- [armls](#armls)
 - [asm_lsp](#asm_lsp)
 - [ast_grep](#ast_grep)
 - [astro](#astro)
@@ -930,6 +931,51 @@ Default config:
   { "arduino" }
   ```
 - `root_dir`: [../lsp/arduino_language_server.lua:74](../lsp/arduino_language_server.lua#L74)
+
+---
+
+## armls
+
+https://github.com/arm/armls
+
+ArmLS is a language server for Arm Assembly.
+
+It supports A32 and A64 assembly and provides hover documentation,
+completion, diagnostics, document symbols, go-to-definition, and
+semantic highlighting.
+
+ArmLS can be installed from the Arm Assembly Support extension on
+Open VSX or the Visual Studio Marketplace.
+
+The internal diagnostics engine is currently alpha quality. Arm
+recommends disabling some operand diagnostics by default and using
+clang-powered diagnostics when appropriate.
+
+Snippet to enable the language server:
+```lua
+vim.lsp.enable('armls')
+```
+
+Default config:
+- `cmd` :
+  ```lua
+  { "armls" }
+  ```
+- `filetypes` :
+  ```lua
+  { "asm" }
+  ```
+- `settings` :
+  ```lua
+  {
+    armls = {
+      diagnostics = {
+        disableCategories = { "invalidOperand", "tooManyOperands", "tooFewOperands" },
+        enable = true
+      }
+    }
+  }
+  ```
 
 ---
 

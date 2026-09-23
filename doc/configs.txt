@@ -411,6 +411,44 @@ Default config:
 <
 
 ------------------------------------------------------------------------------
+armls
+
+https://github.com/arm/armls
+
+ArmLS is a language server for Arm Assembly.
+
+It supports A32 and A64 assembly and provides hover documentation,
+completion, diagnostics, document symbols, go-to-definition, and
+semantic highlighting.
+
+ArmLS can be installed from the Arm Assembly Support extension on
+Open VSX or the Visual Studio Marketplace.
+
+The internal diagnostics engine is currently alpha quality. Arm
+recommends disabling some operand diagnostics by default and using
+clang-powered diagnostics when appropriate.
+
+Snippet to enable the language server: >lua
+  vim.lsp.enable('armls')
+
+
+Default config:
+- cmd: >lua
+  { "armls" }
+- filetypes: >lua
+  { "asm" }
+- settings: >lua
+  {
+    armls = {
+      diagnostics = {
+        disableCategories = { "invalidOperand", "tooManyOperands", "tooFewOperands" },
+        enable = true
+      }
+    }
+  }
+<
+
+------------------------------------------------------------------------------
 asm_lsp
 
 https://github.com/bergercookie/asm-lsp
