@@ -27,7 +27,7 @@
 ---@class _.lspconfig.settings.jetls.JetlsClient.Settings.CodeLens
 ---Show reference counts above top-level symbols (functions, structs, constants, etc.). Click to open references panel.
 ---@field references? boolean
----Show `Run`/`Debug` code lenses above `@testset` blocks. Some editors (e.g., Zed) show these as code actions, causing duplication; zed-julia defaults to false.
+---Show `Run`/`Debug` code lenses above `@testset` blocks. Some editors (e.g., Zed) show these as code actions, causing duplication.
 ---
 ---```lua
 ---default = true

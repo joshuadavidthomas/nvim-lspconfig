@@ -321,6 +321,14 @@
 ---```
 ---@field triggerCompletionInArgumentLists? boolean
 
+---@class _.lspconfig.settings.omnisharp.Dotnet.CopilotDotnetPlugin
+---%configuration.dotnet.copilotDotnetPlugin.enableAutoInstall%
+---
+---```lua
+---default = true
+---```
+---@field enableAutoInstall? boolean
+
 ---@class _.lspconfig.settings.omnisharp.Dotnet.Diagnostics
 ---%configuration.dotnet.diagnostics.reportInformationAsHint%
 ---
@@ -724,6 +732,7 @@
 ---@field backgroundAnalysis? _.lspconfig.settings.omnisharp.Dotnet.BackgroundAnalysis
 ---@field codeLens? _.lspconfig.settings.omnisharp.Dotnet.CodeLens
 ---@field completion? _.lspconfig.settings.omnisharp.Dotnet.Completion
+---@field copilotDotnetPlugin? _.lspconfig.settings.omnisharp.Dotnet.CopilotDotnetPlugin
 ---%configuration.dotnet.defaultSolution.description%
 ---@field defaultSolution? string
 ---@field diagnostics? _.lspconfig.settings.omnisharp.Dotnet.Diagnostics

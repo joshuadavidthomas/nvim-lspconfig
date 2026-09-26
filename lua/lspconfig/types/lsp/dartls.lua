@@ -175,6 +175,12 @@
 ---@field debugExternalPackageLibraries? boolean
 ---Whether to mark Dart SDK libraries (`dart:*`) as debuggable, enabling stepping into them while debugging.
 ---@field debugSdkLibraries? boolean
+---The default exception pause mode. VS Code may persist settings in existing workspaces, so this only controls the default setting advertised by the debug adapter.
+---
+---```lua
+---default = "unhandled"
+---```
+---@field defaultExceptionPauseMode? "none" | "unhandled" | "all"
 ---Whether to launch external DevTools windows using Chrome or the system default browser. This setting is ignored for remote workspaces (including Docker, SSH, WSL).
 ---
 ---```lua

@@ -210,6 +210,12 @@
 ---@field ignoreSwiftVersionFile? boolean
 ---Set the branch to use when setting the `$schema` property of the SourceKit-LSP configuration. For example: "release/6.1" or "main". When this setting is unset, the extension will determine the branch based on the version of the toolchain that is in use.
 ---@field lspConfigurationBranch? string
+---The maximum number of directories to watch for changes to a `.swift-version` file, starting at a `Package.swift` and walking upwards towards the root of the file system. A value of `1` watches the directory containing the `Package.swift` only.
+---
+---```lua
+---default = 64
+---```
+---@field maxSwiftVersionFileWatchDepth? integer
 ---Controls whether to open a swift project automatically after creating it.
 ---
 ---```lua

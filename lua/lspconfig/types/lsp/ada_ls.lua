@@ -17,11 +17,11 @@
 ---@field indentOnly? true | false
 
 ---@class _.lspconfig.settings.ada_ls.Ada.ProjectView
----Show all projects as a flat list instead of a hierarchy in the Project View.
+---Show all projects as a flat list instead of a hierarchy in the Project view.
 ---@field flatMode? boolean
----Show the object directory as a child of each project in the Project View.
+---Show the object directory as a child of each project in the Project view.
 ---@field showObjectDirectories? boolean
----Show the Ada runtime project and its source files in the Project View.
+---Show the Ada runtime project and its source files in the Project view.
 ---@field showRuntimeFiles? boolean
 
 ---@class _.lspconfig.settings.ada_ls.Ada.RangeFormatting
