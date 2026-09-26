@@ -6061,7 +6061,7 @@ Default config:
   ```
 - `filetypes` :
   ```lua
-  { "asciidoc", "c", "cpp", "cs", "gitcommit", "go", "html", "java", "javascript", "lua", "markdown", "nix", "python", "ruby", "rust", "swift", "tex", "toml", "typescript", "typescriptreact", "haskell", "cmake", "typst", "php", "dart", "clojure", "sh" }
+  { "asciidoc", "c", "cpp", "cs", "gitcommit", "go", "html", "java", "javascript", "jjdescription", "lua", "markdown", "nix", "python", "ruby", "rust", "swift", "tex", "toml", "typescript", "typescriptreact", "haskell", "cmake", "typst", "php", "dart", "clojure", "sh" }
   ```
 - `root_markers` :
   ```lua
